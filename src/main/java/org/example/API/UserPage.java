@@ -2,42 +2,41 @@ package org.example.API;
 
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
+import org.example.Resources.LoginUser;
+import org.example.Resources.User;
 
 import static io.restassured.RestAssured.given;
 
-public class    UserPage {
+public class UserPage extends BaseApi {
     @Step("Создание пользователя")
     public Response createUser(User user) {
-        return given()
-                .header("Content-type", "application/json")
-                .and()
+        return given(RequestSpecification())
                 .body(user)
                 .when()
-                .post("/api/auth/register");
+                .post(PathApi.CREATE_USER);
     }
+
     @Step("Авторизация пользователя")
     public Response loginUser(LoginUser loginUser) {
-        return given()
-                .header("Content-type", "application/json")
-                .and()
+        return given(RequestSpecification())
                 .body(loginUser)
                 .when()
-                .post("/api/auth/login");
+                .post(PathApi.LOGIN_USER);
     }
+
     @Step("Удаление пользователя")
-    public Response deleteUser (String accessToken) {
-        return given()
-                .header("Content-type", "application/json")
+    public Response deleteUser(String accessToken) {
+        return given(RequestSpecification())
                 .header("Authorization", accessToken)
                 .when()
-                .delete("/api/auth/user");
+                .delete(PathApi.DELETE_USER);
     }
+
     @Step("Выход из системы")
-    public Response logoutUser (String accessToken) {
-        return given()
-                .header("Content-type", "application/json")
+    public Response logoutUser(String accessToken) {
+        return given(RequestSpecification())
                 .header("Authorization", accessToken)
                 .when()
-                .post("/api/auth/logout");
+                .post(PathApi.LOGOUT_USER);
     }
 }

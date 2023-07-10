@@ -19,11 +19,12 @@ public class LoginPageTest extends BeforeTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.clickOnEnterAcountButton();
         LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.login(getEmail(), getPassword());
+        loginPage.login(getUser().getEmail(), getUser().getPassword());
         homePage.clickOnPersonalAreaLink();
         AccountPage accountPage = new AccountPage(getDriver());
         Assert.assertTrue(getDriver().findElement(accountPage.getNameField()).isDisplayed());
     }
+
     @Test
     @DisplayName("Login by clicking the Personal Area button")
     @Description("Вход по кнопке Личный кабинет")
@@ -31,11 +32,12 @@ public class LoginPageTest extends BeforeTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.clickOnPersonalAreaLink();
         LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.login(getEmail(), getPassword());
+        loginPage.login(getUser().getEmail(), getUser().getPassword());
         homePage.clickOnPersonalAreaLink();
         AccountPage accountPage = new AccountPage(getDriver());
         Assert.assertTrue(getDriver().findElement(accountPage.getNameField()).isDisplayed());
     }
+
     @Test
     @DisplayName("Login on click enter button on registration page")
     @Description("Вход при нажатии кнопки Ввод на странице регистрации")
@@ -46,11 +48,12 @@ public class LoginPageTest extends BeforeTest {
         loginPage.clickOnRegistrationLink();
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
         registrationPage.clickSignInButton();
-        loginPage.login(getEmail(), getPassword());
+        loginPage.login(getUser().getEmail(), getUser().getPassword());
         homePage.clickOnPersonalAreaLink();
         AccountPage accountPage = new AccountPage(getDriver());
         Assert.assertTrue(getDriver().findElement(accountPage.getNameField()).isDisplayed());
     }
+
     @Test
     @DisplayName("Login on forgot password page")
     @Description("Вход через кнопку на странице восстановления пароля")
@@ -61,11 +64,12 @@ public class LoginPageTest extends BeforeTest {
         loginPage.clickOnRestorePasswordLink();
         PasswordRecoveryPage passwordRecoveryPage = new PasswordRecoveryPage(getDriver());
         passwordRecoveryPage.clickOnEnterLinkOnForgotPasswordPage();
-        loginPage.login(getEmail(), getPassword());
+        loginPage.login(getUser().getEmail(), getUser().getPassword());
         homePage.clickOnPersonalAreaLink();
         AccountPage accountPage = new AccountPage(getDriver());
         Assert.assertTrue(getDriver().findElement(accountPage.getNameField()).isDisplayed());
     }
+
     @Test
     @DisplayName("Logout from Personal Area")
     @Description("Выход из Личного кабинета")
@@ -73,7 +77,7 @@ public class LoginPageTest extends BeforeTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.clickOnPersonalAreaLink();
         LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.login(getEmail(), getPassword());
+        loginPage.login(getUser().getEmail(), getUser().getPassword());
         homePage.clickOnPersonalAreaLink();
         loginPage.clickLogoutButton();
         Assert.assertTrue(getDriver().findElement(loginPage.getLogo()).isDisplayed());

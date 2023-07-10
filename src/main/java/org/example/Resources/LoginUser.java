@@ -1,17 +1,12 @@
-package org.example.API;
+package org.example.Resources;
 
-public class User {
+public class LoginUser {
     private String email;
     private String password;
-    private String name;
 
-    public User(String email, String password, String name) {
+    public LoginUser(String email, String password) {
         this.email = email;
         this.password = password;
-        this.name = name;
-    }
-
-    public User() {
     }
 
     public String getEmail() {
@@ -28,13 +23,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

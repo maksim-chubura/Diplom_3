@@ -9,6 +9,7 @@ public class BrowserSetup {
 
     private static final String DEFAULT_BROWSER = "chrome";
     private static final ChromeOptions options = new ChromeOptions();
+
     public static WebDriver browserDriverSetUp() {
         WebDriver driver = null;
         String browserType = getBrowserType();
@@ -26,6 +27,7 @@ public class BrowserSetup {
         }
         return driver;
     }
+
     private static String getBrowserType() {
         // Проверяем наличие системной проперти или переменной окружения для выбора браузера
         String browserType = System.getProperty(BROWSER_PROPERTY);

@@ -11,6 +11,7 @@ public class NavigationTest extends BeforeTest {
     public void registrationUser() {
         getUserPage().createUser(getUser());
     }
+
     @Test
     @DisplayName("Check transition from personal account to constructor by click on Constructor")
     @Description("Проверка перехода из личного кабинета в конструктор по клику на Конструктор")
@@ -18,11 +19,12 @@ public class NavigationTest extends BeforeTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.clickOnPersonalAreaLink();
         LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.login(getEmail(), getPassword());
+        loginPage.login(getUser().getEmail(), getUser().getPassword());
         homePage.clickOnPersonalAreaLink();
         homePage.clickOnConstructorLink();
         Assert.assertTrue(getDriver().findElement(homePage.getConstructBurgerHeader()).isDisplayed());
     }
+
     @Test
     @DisplayName("Check transition from personal account to constructor by click on Stellar Burgers")
     @Description("Проверка перехода из личного кабинета в конструктор по клику на Stellar Burgers")
@@ -30,7 +32,7 @@ public class NavigationTest extends BeforeTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.clickOnPersonalAreaLink();
         LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.login(getEmail(), getPassword());
+        loginPage.login(getUser().getEmail(), getUser().getPassword());
         homePage.clickOnPersonalAreaLink();
         homePage.clickOnStellarBurgersLogoLink();
         Assert.assertTrue(getDriver().findElement(homePage.getConstructBurgerHeader()).isDisplayed());
@@ -44,23 +46,25 @@ public class NavigationTest extends BeforeTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.clickOnSaucesChapter();
         homePage.clickOnBunsChapter();
-        Assert.assertEquals("Неверный текст! Должны быть Булки","Булки", homePage.getTextFromTheChosenElement());
+        Assert.assertEquals("Неверный текст! Должны быть Булки", "Булки", homePage.getTextFromTheChosenElement());
     }
+
     @Test
     @DisplayName("Check transition to Sauce section")
     @Description("Работа перехода на раздел Соусы")
     public void checkTransitionToSauceSection() {
         HomePage homePage = new HomePage(getDriver());
         homePage.clickOnSaucesChapter();
-        Assert.assertEquals("Неверный текст! Должны быть Соусы","Соусы", homePage.getTextFromTheChosenElement());
+        Assert.assertEquals("Неверный текст! Должны быть Соусы", "Соусы", homePage.getTextFromTheChosenElement());
     }
+
     @Test
     @DisplayName("Check transition to Ingredients section")
     @Description("Работа перехода на раздел Начинки")
     public void checkTransitionToIngredientsSection() {
         HomePage homePage = new HomePage(getDriver());
         homePage.clickOnIngredientsChapter();
-        Assert.assertEquals("Неверный текст! Должны быть Начинки","Начинки", homePage.getTextFromTheChosenElement());
+        Assert.assertEquals("Неверный текст! Должны быть Начинки", "Начинки", homePage.getTextFromTheChosenElement());
     }
 
 }

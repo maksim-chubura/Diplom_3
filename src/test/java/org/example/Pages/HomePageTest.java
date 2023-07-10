@@ -16,9 +16,10 @@ public class HomePageTest extends BeforeTest {
         loginPage.clickOnRegistrationLink();
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
         registrationPage.clickOnRegistrationButton();
-        registrationPage.registrationUser(getName(), getEmail(), getPassword());
+        registrationPage.registrationUser(getUser().getName(), getUser().getEmail(), getUser().getPassword());
         Assert.assertTrue(getDriver().findElement(loginPage.getLogo()).isDisplayed());
     }
+
     @Test
     @DisplayName("Check create user with invalid password")
     @Description("Проверка создания пользователя с неверным паролем")
@@ -28,7 +29,7 @@ public class HomePageTest extends BeforeTest {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.clickOnRegistrationLink();
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
-        registrationPage.registrationUser(getName(), getEmail(), getIncorrectPassword());
+        registrationPage.registrationUser(getUser().getName(), getUser().getEmail(), getIncorrectPassword());
         Assert.assertTrue(getDriver().findElement(registrationPage.getIncorrectPassword()).isDisplayed());
     }
 }
