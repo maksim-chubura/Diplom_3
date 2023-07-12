@@ -1,18 +1,18 @@
-package org.example.Pages;
+package org.example.pages;
 
 import io.restassured.response.Response;
-import org.example.Resources.LoginUser;
-import org.example.Resources.User;
-import org.example.API.UserPage;
-import org.example.Resources.UserGenerator;
+import org.example.resources.LoginUser;
+import org.example.resources.User;
+import org.example.steps.UserPage;
+import org.example.resources.UserGenerator;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
-import static org.example.API.PathApi.BASE_URI;
-import static org.example.Browsers.BrowserSetup.browserDriverSetUp;
+import static org.example.api.PathApi.BASE_URI;
+import static org.example.browsers.BrowserSetup.browserDriverSetUp;
 
 public class BeforeTest {
     private final String incorrectPassword = "9876";

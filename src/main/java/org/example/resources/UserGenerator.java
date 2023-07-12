@@ -1,4 +1,4 @@
-package org.example.Resources;
+package org.example.resources;
 
 import org.apache.commons.lang3.RandomStringUtils;
 

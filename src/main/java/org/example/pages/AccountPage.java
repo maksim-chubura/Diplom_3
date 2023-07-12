@@ -1,7 +1,7 @@
-package org.example.Pages;
+package org.example.pages;
 
 import io.qameta.allure.Step;
-import org.example.Resources.User;
+import org.example.resources.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

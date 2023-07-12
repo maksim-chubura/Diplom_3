@@ -1,9 +1,11 @@
-package org.example.API;
+package org.example.steps;
 
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
-import org.example.Resources.LoginUser;
-import org.example.Resources.User;
+import org.example.api.BaseApi;
+import org.example.api.PathApi;
+import org.example.resources.LoginUser;
+import org.example.resources.User;
 
 import static io.restassured.RestAssured.given;
 

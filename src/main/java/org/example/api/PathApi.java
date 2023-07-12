@@ -1,4 +1,4 @@
-package org.example.API;
+package org.example.api;
 
 public class PathApi {
     public static final String CREATE_USER = "/api/auth/register";

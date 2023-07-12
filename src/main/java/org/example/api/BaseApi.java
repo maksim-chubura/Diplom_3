@@ -1,4 +1,4 @@
-package org.example.API;
+package org.example.api;
 
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;

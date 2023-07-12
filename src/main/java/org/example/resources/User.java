@@ -1,4 +1,4 @@
-package org.example.Resources;
+package org.example.resources;
 
 public class User {
     private String email;
